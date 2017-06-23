@@ -1,0 +1,11 @@
+d:\documents\visual studio 2017\Projects\WebService\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\WebService.dll.config
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\WebService.dll
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\WebService.pdb
+d:\documents\visual studio 2017\Projects\WebService\WebService\obj\Debug\WebService.dll
+d:\documents\visual studio 2017\Projects\WebService\WebService\obj\Debug\WebService.pdb
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.dll
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.SqlServer.dll
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.xml
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.SqlServer.xml
+d:\documents\visual studio 2017\Projects\WebService\WebService\bin\fr\EntityFramework.resources.dll
