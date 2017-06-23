@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 
 namespace LoginActivity.View
@@ -8,6 +10,7 @@ namespace LoginActivity.View
     /// </summary>
     public partial class MainPageView : Window
     {
+        private List<string> filenames;
         public MainPageView()
         {
             InitializeComponent();
@@ -15,6 +18,8 @@ namespace LoginActivity.View
 
         private void BrowseClick(object sender, RoutedEventArgs e)
         {
+            if(filenames == null) filenames = new List<string>();
+            if (filenames.Count > 0) filenames.Clear();
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog()
             {
                 DefaultExt = ".txt",
@@ -27,16 +32,25 @@ namespace LoginActivity.View
             if (result.HasValue && result.Value)
             {
                 Filename.Text = "";
-                foreach (var item in dlg.SafeFileNames)
+                foreach (var item in dlg.FileNames)
                 {
                     Filename.Text += item+"\n";
+                    filenames.Add(item);
                 }
             }
         }
 
         private void SendClick(object sender, RoutedEventArgs e)
         {
-            // Send files to webservice
+            if (Model.Decrypt.Decrypter(filenames))
+            {
+                // Success!
+            }
+            else
+            {
+                // Fail
+            }
+            
         }
     }
 }

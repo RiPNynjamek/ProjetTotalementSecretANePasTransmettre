@@ -12,7 +12,7 @@ namespace LoginActivity.Model
         public static bool Authenticate(string Username, string Password)
         {
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
-            Generator.GeneratorClient client = new Generator.GeneratorClient();
+            AuthenticationService.AuthenticationClient client = new AuthenticationService.AuthenticationClient();
             var user = client.Authenticate(Username, Password, tokenApi);
             return user.IsAuthentified;
         }

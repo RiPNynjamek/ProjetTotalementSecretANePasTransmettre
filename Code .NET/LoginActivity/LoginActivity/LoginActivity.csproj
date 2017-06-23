@@ -57,11 +57,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connected Services\Generator\Reference.cs">
+    <Compile Include="Connected Services\AuthenticationService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\DecryptionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Decrypt.cs" />
     <Compile Include="View\MainPageView.xaml.cs">
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
@@ -108,17 +114,33 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\Generator\Generator.wsdl" />
-    <None Include="Connected Services\Generator\Generator.xsd">
+    <None Include="Connected Services\AuthenticationService\Authentication.wsdl" />
+    <None Include="Connected Services\AuthenticationService\Authentication.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Generator\Generator1.xsd">
+    <None Include="Connected Services\AuthenticationService\Authentication1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Generator\Generator2.xsd">
+    <None Include="Connected Services\AuthenticationService\Authentication2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Generator\LoginActivity.Generator.CompositeTypeAuthenticate.datasource">
+    <None Include="Connected Services\AuthenticationService\LoginActivity.AuthenticationService.CompositeTypeAuthenticate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DecryptionService\Decryption.wsdl" />
+    <None Include="Connected Services\DecryptionService\Decryption.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptionService\Decryption1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptionService\Decryption2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptionService\Decryption3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptionService\LoginActivity.DecryptionService.CompositeTypeDecrypt.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -135,19 +157,35 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Generator\" />
+    <WCFMetadataStorage Include="Connected Services\AuthenticationService\" />
+    <WCFMetadataStorage Include="Connected Services\DecryptionService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Generator\Generator.disco" />
+    <None Include="Connected Services\AuthenticationService\Authentication.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Generator\configuration91.svcinfo" />
+    <None Include="Connected Services\AuthenticationService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Generator\configuration.svcinfo" />
+    <None Include="Connected Services\AuthenticationService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Generator\Reference.svcmap">
+    <None Include="Connected Services\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptionService\Decryption.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptionService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

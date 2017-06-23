@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7214617b-864f-49eb-a842-d237a836ee61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55397/Service/Decryption.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Decryption.wsdl" MetadataType="Wsdl" ID="f6333416-06c4-4935-bdf0-b9dfba81efc9" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?wsdl" />
+    <MetadataFile FileName="Decryption.xsd" MetadataType="Schema" ID="af21ad48-1d49-4112-b706-a3ec9532db0d" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?xsd=xsd0" />
+    <MetadataFile FileName="Decryption1.xsd" MetadataType="Schema" ID="2e5bf6f6-14ec-4a2a-b69e-d9c0e7372184" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?xsd=xsd3" />
+    <MetadataFile FileName="Decryption2.xsd" MetadataType="Schema" ID="aef1e6ed-c568-4044-8de8-44470ede409b" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?xsd=xsd2" />
+    <MetadataFile FileName="Decryption3.xsd" MetadataType="Schema" ID="b4fe041c-34b7-4bb7-b6c2-a0a6edcecfbc" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?xsd=xsd1" />
+    <MetadataFile FileName="Decryption.disco" MetadataType="Disco" ID="296249f2-6131-4e80-85b6-3d4a70f998ce" SourceId="1" SourceUrl="http://localhost:55397/Service/Decryption.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
