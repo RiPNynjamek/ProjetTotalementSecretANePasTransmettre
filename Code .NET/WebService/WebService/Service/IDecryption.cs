@@ -23,6 +23,7 @@ namespace WebService.Service
         string key = "";
         byte[] reportFile = null;
         string email = "";
+        string infoMessage = "";
 
         [DataMember]
         public bool IsDecrypted
@@ -57,6 +58,13 @@ namespace WebService.Service
         {
             get { return email; }
             set { email = value; }
+        }
+
+        [DataMember]
+        public string InfoMessage
+        {
+            get { return infoMessage; }
+            set { infoMessage = value; }
         }
     }
 }

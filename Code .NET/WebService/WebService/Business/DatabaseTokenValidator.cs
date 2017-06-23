@@ -9,9 +9,6 @@ namespace WebService.Business
 {
     public class DatabaseTokenValidator : ITokenValidator
     {
-        // Todo: Set this from a web.config appSettting value
-        public static double DefaultSecondsUntilTokenExpires = 1800;
-
         private readonly UserTokenDBContext _DBContext;
 
         public DatabaseTokenValidator(UserTokenDBContext dbContext)
@@ -22,13 +19,7 @@ namespace WebService.Business
         public bool IsValid(string tokentext)
         {
             var token = _DBContext.Token.SingleOrDefault(t => t.Token1 == tokentext);
-            return token != null && !IsExpired(token);
-        }
-
-        internal bool IsExpired(Token token)
-        {
-            var span = DateTime.Now - token.CreateTime;
-            return span.TotalSeconds > DefaultSecondsUntilTokenExpires;
+            return token != null;
         }
     }
 }

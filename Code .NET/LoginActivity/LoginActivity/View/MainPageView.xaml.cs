@@ -23,7 +23,7 @@ namespace LoginActivity.View
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog()
             {
                 DefaultExt = ".txt",
-                Filter = "All files (*.*)|*.*|Txt files (*.txt)|*.txt",
+                Filter = "Txt files (*.txt)|*.txt|All files (*.*)|*.*",
                 Multiselect = true
             };
 
@@ -45,10 +45,12 @@ namespace LoginActivity.View
             if (Model.Decrypt.Decrypter(filenames))
             {
                 // Success!
+                Information.Text = "File decrypted successfully!";
             }
             else
             {
                 // Fail
+                Information.Text = "Error!";
             }
             
         }

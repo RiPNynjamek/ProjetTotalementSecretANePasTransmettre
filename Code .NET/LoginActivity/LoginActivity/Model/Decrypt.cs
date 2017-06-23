@@ -24,10 +24,8 @@ namespace LoginActivity.Model
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
             string tokenUser = Authentication.tokenUser;
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
-            Debug.WriteLine("Fichier 1 size : " + filesBytes[0].Length);
             var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
-            Debug.WriteLine("Fichier retour size : " + retour.DecryptedFile.Length);
-            return true;
+            return retour.IsDecrypted;
         }
     }
 }
