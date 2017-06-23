@@ -9,3 +9,14 @@ d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramewo
 d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.xml
 d:\documents\visual studio 2017\Projects\WebService\WebService\bin\EntityFramework.SqlServer.xml
 d:\documents\visual studio 2017\Projects\WebService\WebService\bin\fr\EntityFramework.resources.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\WebService.dll.config
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\WebService.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\WebService.pdb
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.SqlServer.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.xml
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.SqlServer.xml
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\fr\EntityFramework.resources.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.pdb

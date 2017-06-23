@@ -25,8 +25,8 @@ namespace WebService.Business
             {
                 throw new AuthenticationException();
             }
-            //var tokenByUser = _DBContext.Token.FirstOrDefault(u => u.User.Equals(creds.Username));
-            //if (tokenByUser != null) return tokenByUser.Token1;
+            var tokenByUser = _DBContext.Token.FirstOrDefault(u => u.User.Username.Equals(creds.Username));
+            if (tokenByUser != null) return tokenByUser.Token1;
 
             var token = BuildSecureToken(TokenSize);
             var user = _DBContext.User.SingleOrDefault(u => u.Username.Equals(creds.Username, StringComparison.CurrentCultureIgnoreCase));
