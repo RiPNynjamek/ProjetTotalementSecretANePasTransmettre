@@ -14,7 +14,8 @@ namespace WebService.Service
         public CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, List<byte[]> files)
         {
             var final = new CompositeTypeDecrypt();
-            throw new NotImplementedException();
+            final.DecryptedFile = files[0];
+            return final;
         }
     }
 }

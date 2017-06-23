@@ -34,7 +34,7 @@
   </wsdl:binding>
   <wsdl:service name="Decryption">
     <wsdl:port name="BasicHttpBinding_IDecryption" binding="tns:BasicHttpBinding_IDecryption">
-      <soap:address location="http://localhost:55397/Service/Decryption.svc" />
+      <soap:address location="http://localhost:55397/Service/Decryption.svc/Decryption.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

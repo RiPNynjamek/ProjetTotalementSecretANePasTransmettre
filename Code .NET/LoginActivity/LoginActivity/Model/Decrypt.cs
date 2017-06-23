@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,11 @@ namespace LoginActivity.Model
                 filesBytes.Add(Bytes);
             }
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
+            string tokenUser = Authentication.tokenUser;
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
+            Debug.WriteLine("Fichier 1 size : " + filesBytes[0].Length);
+            var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
+            Debug.WriteLine("Fichier retour size : " + retour.DecryptedFile.Length);
             return true;
         }
     }

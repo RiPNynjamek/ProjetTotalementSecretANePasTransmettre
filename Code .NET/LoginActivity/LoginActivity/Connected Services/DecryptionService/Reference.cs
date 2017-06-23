@@ -127,10 +127,10 @@ namespace LoginActivity.DecryptionService {
     public interface IDecryption {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDecryption/Decrypt", ReplyAction="http://tempuri.org/IDecryption/DecryptResponse")]
-        LoginActivity.DecryptionService.CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, byte[][] files);
+        LoginActivity.DecryptionService.CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, System.Collections.Generic.List<byte[]> files);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDecryption/Decrypt", ReplyAction="http://tempuri.org/IDecryption/DecryptResponse")]
-        System.Threading.Tasks.Task<LoginActivity.DecryptionService.CompositeTypeDecrypt> DecryptAsync(string tokenUser, string tokenApi, byte[][] files);
+        System.Threading.Tasks.Task<LoginActivity.DecryptionService.CompositeTypeDecrypt> DecryptAsync(string tokenUser, string tokenApi, System.Collections.Generic.List<byte[]> files);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,11 +160,11 @@ namespace LoginActivity.DecryptionService {
                 base(binding, remoteAddress) {
         }
         
-        public LoginActivity.DecryptionService.CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, byte[][] files) {
+        public LoginActivity.DecryptionService.CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, System.Collections.Generic.List<byte[]> files) {
             return base.Channel.Decrypt(tokenUser, tokenApi, files);
         }
         
-        public System.Threading.Tasks.Task<LoginActivity.DecryptionService.CompositeTypeDecrypt> DecryptAsync(string tokenUser, string tokenApi, byte[][] files) {
+        public System.Threading.Tasks.Task<LoginActivity.DecryptionService.CompositeTypeDecrypt> DecryptAsync(string tokenUser, string tokenApi, System.Collections.Generic.List<byte[]> files) {
             return base.Channel.DecryptAsync(tokenUser, tokenApi, files);
         }
     }

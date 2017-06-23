@@ -33,7 +33,7 @@
   </wsdl:binding>
   <wsdl:service name="Authentication">
     <wsdl:port name="BasicHttpBinding_IAuthentication" binding="tns:BasicHttpBinding_IAuthentication">
-      <soap:address location="http://localhost:55397/Service/Authentication.svc" />
+      <soap:address location="http://localhost:55397/Service/Authentication.svc/Authentication.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
