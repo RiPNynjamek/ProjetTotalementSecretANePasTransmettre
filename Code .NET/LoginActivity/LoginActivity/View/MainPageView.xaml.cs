@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 
@@ -11,9 +12,13 @@ namespace LoginActivity.View
     public partial class MainPageView : Window
     {
         private List<string> filenames;
+        private readonly BackgroundWorker worker = new BackgroundWorker();
+
         public MainPageView()
         {
             InitializeComponent();
+            worker.DoWork += worker_DoWork;
+
         }
 
         private void BrowseClick(object sender, RoutedEventArgs e)
@@ -42,17 +47,19 @@ namespace LoginActivity.View
 
         private void SendClick(object sender, RoutedEventArgs e)
         {
+            worker.RunWorkerAsync();
+        }
+
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
             if (Model.Decrypt.Decrypter(filenames))
             {
                 // Success!
-                Information.Text = "File decrypted successfully!";
             }
-            else
+            Dispatcher.Invoke(() =>
             {
-                // Fail
-                Information.Text = "Error!";
-            }
-            
+                Information.Text = Model.Decrypt.InformationMessage;
+            });
         }
     }
 }

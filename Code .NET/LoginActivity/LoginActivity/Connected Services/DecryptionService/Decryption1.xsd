@@ -4,6 +4,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="DecryptedFile" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsDecrypted" type="xs:boolean" />
       <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ReportFile" nillable="true" type="xs:base64Binary" />

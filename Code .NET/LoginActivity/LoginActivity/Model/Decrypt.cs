@@ -4,15 +4,22 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LoginActivity.Model
 {
     class Decrypt
     {
+        public static string InformationMessage;
+
         public static bool Decrypter(List<string> files)
         {
-            if (files == null) return false;
+            if (files == null)
+            {
+                InformationMessage = "No file selected";
+                return false;
+            }
             List<byte[]> filesBytes = new List<byte[]>();
             foreach (var item in files)
             {
@@ -25,6 +32,7 @@ namespace LoginActivity.Model
             string tokenUser = Authentication.tokenUser;
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
             var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
+            InformationMessage = retour.InfoMessage;
             return retour.IsDecrypted;
         }
     }

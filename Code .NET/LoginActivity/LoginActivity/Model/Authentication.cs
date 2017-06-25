@@ -11,13 +11,23 @@ namespace LoginActivity.Model
     {
 
         public static string tokenUser;
+        public static string MessageInformation;
         public static bool Authenticate(string Username, string Password)
         {
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
             AuthenticationService.AuthenticationClient client = new AuthenticationService.AuthenticationClient();
-            var user = client.Authenticate(Username, Password, tokenApi);
-            tokenUser = user.TokenUser;
-            return user.IsAuthentified;
+            try
+            {
+                var user = client.Authenticate(Username, Password, tokenApi);
+                tokenUser = user.TokenUser;
+                if (!user.IsAuthentified) MessageInformation = "Invalid credentials";
+                return user.IsAuthentified;
+            }
+            catch
+            {
+                MessageInformation = "Web service unavailable";
+                return false;
+            }
         }
     }
 }

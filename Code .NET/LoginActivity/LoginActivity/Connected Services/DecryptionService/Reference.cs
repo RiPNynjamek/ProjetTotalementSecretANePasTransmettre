@@ -29,6 +29,9 @@ namespace LoginActivity.DecryptionService {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InfoMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsDecryptedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -69,6 +72,19 @@ namespace LoginActivity.DecryptionService {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InfoMessage {
+            get {
+                return this.InfoMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InfoMessageField, value) != true)) {
+                    this.InfoMessageField = value;
+                    this.RaisePropertyChanged("InfoMessage");
                 }
             }
         }
