@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,25 +20,45 @@ namespace LoginActivity
     /// </summary>
     public partial class LoginPageView : Window
     {
+        private readonly BackgroundWorker worker = new BackgroundWorker();
         public LoginPageView()
         {
             InitializeComponent();
+            worker.DoWork += worker_DoWork;
         }
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-            if(Model.Authentication.Authenticate(Login.Text, Password.Text))
+            worker.RunWorkerAsync();
+        }
+
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string login = "", password = "";
+            Dispatcher.Invoke(() =>
             {
-                View.MainPageView main = new View.MainPageView();
-                //MainWindow main = new MainWindow();
-                App.Current.MainWindow = main;
-                this.Close();
-                main.Show();
+                ErrorLogin.Visibility = Visibility.Hidden;
+                login = Login.Text;
+                password = Password.Text;
+            });
+            if (Model.Authentication.Authenticate(login, password))
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    View.MainPageView main = new View.MainPageView();
+                    App.Current.MainWindow = main;
+                    this.Close();
+                    main.Show();
+
+                });
             }
             else
             {
-                //Log error login
-                ErrorLogin.Visibility = Visibility.Visible;
+                Dispatcher.Invoke(() =>
+                {
+                    ErrorLogin.Text = Model.Authentication.MessageInformation;
+                    ErrorLogin.Visibility = Visibility.Visible;
+                });
             }
         }
     }
