@@ -1,1 +1,14 @@
 /Code Web App/WebApp/build/
+/J2E/pocPattern/dist/
+/J2E/pocPattern/build/
+/J2E/pocConnection/nbproject/private/
+/J2E/soapPattern/build/
+/J2E/soapPattern/dist/
+/J2E/soapGen/nbproject/private/
+/J2E/soapGen/build/
+/J2E/soapGen/dist/
+/J2E/pocPattern/nbproject/private/
+/J2E/pocJMS/nbproject/private/
+/J2E/pocConnection/build/
+/J2E/pocConnection/dist/
+/J2E/connectionPoc/target/
