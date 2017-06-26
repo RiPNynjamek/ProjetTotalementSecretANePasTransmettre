@@ -47,11 +47,22 @@ namespace LoginActivity.View
 
         private void SendClick(object sender, RoutedEventArgs e)
         {
-            worker.RunWorkerAsync();
+            try
+            {
+                worker.RunWorkerAsync();
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            Dispatcher.Invoke(() =>
+            {
+                Information.Text = string.Empty;
+            });
             if (Model.Decrypt.Decrypter(filenames))
             {
                 // Success!
@@ -60,6 +71,11 @@ namespace LoginActivity.View
             {
                 Information.Text = Model.Decrypt.InformationMessage;
             });
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

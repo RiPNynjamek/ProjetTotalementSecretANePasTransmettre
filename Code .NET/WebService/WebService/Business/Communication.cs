@@ -1,0 +1,96 @@
+﻿using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Web;
+using WebService.Interfaces;
+
+namespace WebService.Business
+{
+    public class Communication<T> : ICommunicateJob<T>
+    {
+        public bool DoWork(List<T> objet)
+        {
+            return true;
+        }
+
+        public void ReceiveMessage()
+        {
+            try
+            {
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                {
+                    using (var channel = connection.CreateModel())
+                    {
+                        channel.QueueDeclare(queue: "decrypt",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                        var consumer = new EventingBasicConsumer(channel);
+                        consumer.Received += (model, ea) =>
+                        {
+                            var body = ea.Body;
+                            var message = Encoding.UTF8.GetString(body);
+                            Debug.WriteLine("Received : " + message);
+                        };
+                        channel.BasicConsume(queue: "decrypt",
+                                             noAck: true,
+                                             consumer: consumer);
+                        Console.ReadLine();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        public void Receive()
+        {
+            Communication<T> workerObject = new Communication<T>();
+            Thread workerThread = new Thread(workerObject.ReceiveMessage);
+            workerThread.Start();
+        }
+
+        public void Send(string message)
+        {
+            try
+            {
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                {
+                    using (var channel = connection.CreateModel())
+                    {
+                        channel.QueueDeclare(queue: "decrypt",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                        var body = Encoding.UTF8.GetBytes(message);
+
+                        channel.BasicPublish(exchange: "",
+                                             routingKey: "decrypt",
+                                             basicProperties: null,
+                                             body: body);
+                        Debug.WriteLine("Sent : " + message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                throw;
+            }
+        }
+    }
+}

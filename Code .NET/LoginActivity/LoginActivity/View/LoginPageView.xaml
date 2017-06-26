@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginActivity"
         mc:Ignorable="d"
-        Title="LoginPageView" Height="300" Width="300">
+        Title="LoginPageView" Height="300" Width="300"
+        Closing="Window_Closing">
     <Grid FocusManager.FocusedElement="{Binding ElementName=Login}">
         <Button IsDefault="True" Content="Login" HorizontalAlignment="Left" Margin="118,128,0,0" VerticalAlignment="Top" Width="75" Click="LoginClick"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Login:" VerticalAlignment="Top" FontSize="20"/>

@@ -33,3 +33,4 @@ D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\Lo
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csproj.GenerateResource.Cache
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.exe
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.pdb
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csprojResolveAssemblyReference.cache

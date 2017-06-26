@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,14 @@ namespace LoginActivity
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-            worker.RunWorkerAsync();
+            try
+            {
+                worker.RunWorkerAsync();
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
@@ -60,6 +68,11 @@ namespace LoginActivity
                     ErrorLogin.Visibility = Visibility.Visible;
                 });
             }
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

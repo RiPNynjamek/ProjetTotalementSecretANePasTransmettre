@@ -33,9 +33,9 @@ namespace WebService.Service
             List<string> filesString = ConvertFromByteArrayToString(files);
 
             // Decrypt string files
+            final.IsDecrypted = new DecryptXOR<string>().DoWork(filesString);
 
-            // If the message is decrypted, return true
-            final.IsDecrypted = true;
+            // If the message is decrypted, return trues
             final.InfoMessage = "File decrypted successfully!";
             return final;
         }

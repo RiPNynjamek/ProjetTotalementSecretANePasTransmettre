@@ -17,6 +17,9 @@ D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\We
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.xml
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\EntityFramework.SqlServer.xml
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\fr\EntityFramework.resources.dll
-D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.dll
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.pdb
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\RabbitMQ.Client.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\RabbitMQ.Client.xml
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\fr\EntityFramework.SqlServer.resources.dll
