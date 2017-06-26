@@ -1,4 +1,4 @@
-package Model.util;
+package Helpers;
 
 import javax.faces.model.DataModel;
 

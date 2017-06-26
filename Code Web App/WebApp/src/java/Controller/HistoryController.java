@@ -1,7 +1,9 @@
-package Model;
+package Controller;
 
-import Model.util.JsfUtil;
-import Model.util.PaginationHelper;
+import Model.History;
+import View.HistoryFacade;
+import Helpers.JsfUtil;
+import Helpers.PaginationHelper;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -16,29 +18,29 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("dicoController")
+@Named("historyController")
 @SessionScoped
-public class DicoController implements Serializable {
+public class HistoryController implements Serializable {
 
-    private Dico current;
+    private History current;
     private DataModel items = null;
     @EJB
-    private Model.DicoFacade ejbFacade;
+    private View.HistoryFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public DicoController() {
+    public HistoryController() {
     }
 
-    public Dico getSelected() {
+    public History getSelected() {
         if (current == null) {
-            current = new Dico();
+            current = new History();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private DicoFacade getFacade() {
+    private HistoryFacade getFacade() {
         return ejbFacade;
     }
 
@@ -66,13 +68,13 @@ public class DicoController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Dico) getItems().getRowData();
+        current = (History) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Dico();
+        current = new History();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -80,7 +82,7 @@ public class DicoController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DicoCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HistoryCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -89,7 +91,7 @@ public class DicoController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Dico) getItems().getRowData();
+        current = (History) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -97,7 +99,7 @@ public class DicoController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DicoUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HistoryUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -106,7 +108,7 @@ public class DicoController implements Serializable {
     }
 
     public String destroy() {
-        current = (Dico) getItems().getRowData();
+        current = (History) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -130,7 +132,7 @@ public class DicoController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DicoDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HistoryDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -186,21 +188,21 @@ public class DicoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Dico getDico(java.lang.Integer id) {
+    public History getHistory(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Dico.class)
-    public static class DicoControllerConverter implements Converter {
+    @FacesConverter(forClass = History.class)
+    public static class HistoryControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            DicoController controller = (DicoController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "dicoController");
-            return controller.getDico(getKey(value));
+            HistoryController controller = (HistoryController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "historyController");
+            return controller.getHistory(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -220,11 +222,11 @@ public class DicoController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Dico) {
-                Dico o = (Dico) object;
+            if (object instanceof History) {
+                History o = (History) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Dico.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + History.class.getName());
             }
         }
 
