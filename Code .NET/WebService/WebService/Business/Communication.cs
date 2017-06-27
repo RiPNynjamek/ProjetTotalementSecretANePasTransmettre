@@ -51,7 +51,7 @@ namespace WebService.Business
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Logger.LogFile(e.GetType().ToString(), e.InnerException.Message, e.Message);
                 throw;
             }
             
@@ -91,7 +91,7 @@ namespace WebService.Business
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Logger.LogFile(e.GetType().ToString(), e.InnerException.Message, e.Message);
                 throw;
             }
         }

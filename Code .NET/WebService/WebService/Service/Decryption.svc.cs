@@ -22,8 +22,8 @@ namespace WebService.Service
         {
             // Check Token User
             using (var dbContext = new UserTokenDBContext())
-                if(!new DatabaseTokenValidator(dbContext).IsValid(tokenUser))
-                    return new CompositeTypeDecrypt { IsDecrypted = false, InfoMessage = "User token invalid"};
+                if (!new DatabaseTokenValidator(dbContext).IsValid(tokenUser))
+                    return new CompositeTypeDecrypt { IsDecrypted = false, InfoMessage = "User token invalid" };
 
             // Check number of files
             if (files.Count == 0)
@@ -33,10 +33,9 @@ namespace WebService.Service
             List<string> filesString = ConvertFromByteArrayToString(files);
 
             // Decrypt string files
-            final.IsDecrypted = new DecryptXOR<string>().DoWork(filesString);
-
-            // If the message is decrypted, return trues
-            final.InfoMessage = "File decrypted successfully!";
+            var decryption = new DecryptXOR<string>();
+            final.IsDecrypted = decryption.DoWork(filesString);
+            final.InfoMessage = decryption.InformationMessage;
             return final;
         }
 

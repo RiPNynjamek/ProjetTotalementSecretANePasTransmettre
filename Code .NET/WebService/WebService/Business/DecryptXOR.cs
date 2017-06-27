@@ -13,6 +13,7 @@ namespace WebService.Business
 {
     public class DecryptXOR<T> : IDecryptJob<T>
     {
+        public string InformationMessage;
         public bool DoWork(List<T> objet)
         {
             return Decrypt(objet);
@@ -23,13 +24,24 @@ namespace WebService.Business
         {
             var com = new Communication<T>();
             com.Receive();
-            WsGenJava.wsGenClient c = new WsGenJava.wsGenClient();
-            c.receive();
+            // We ask the JEE client to start listening to get the files
+            WsGenJava.wsGenClient client = new WsGenJava.wsGenClient();
+            try
+            {
+                client.receive();
+            }
+            catch (Exception e)
+            {
+                Logger.LogFile(e.GetType().ToString(), e.InnerException.Message, e.Message);
+                InformationMessage = "Java web service not available";
+                return false;
+            }
             foreach (var item in objet)
             {
                 EncryptDecryptWithoutKey(item.ToString());
             }
             // TODO: get the result from JMS before returning true
+            InformationMessage = "File decrypted successfully!";
             return true;
         }
 
@@ -37,7 +49,7 @@ namespace WebService.Business
         {
             var result = new StringBuilder();
             char[] key = { 'a', 'a', 'a', 'a', 'a', 'a' };
-            while(true)
+            while (true)
             {
                 for (int i = 0; i < input.Length; i++)
                 {
@@ -50,14 +62,14 @@ namespace WebService.Business
                 }
                 SendMessage(result.ToString(), new string(key));
                 key = IncrementKey(key);
-                if(key == null) break;
+                if (key == null) break;
             }
             return true;
         }
 
         private static void SendMessage(string result, string key)
         {
-            string message = JsonConvert.SerializeObject(new Model.DecryptMessage(result, key));
+            string message = JsonConvert.SerializeObject(new DecryptMessage(result, key));
             new Communication<T>().Send(message);
         }
 

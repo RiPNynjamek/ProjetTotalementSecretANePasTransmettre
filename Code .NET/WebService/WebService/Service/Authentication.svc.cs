@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -17,6 +19,8 @@ namespace WebService.Service
     {
         public CompositeTypeAuthenticate Authenticate(string username, string password, string tokenApi)
         {
+            string message = JsonConvert.SerializeObject(new Model.DecryptMessage("eh oui !", "delias"));
+            Debug.WriteLine(message);
             var final = new CompositeTypeAuthenticate();
             Credentials creds = new Credentials(username, password, tokenApi);
             //Check in DB if user is valid

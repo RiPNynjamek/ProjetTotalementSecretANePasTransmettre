@@ -11,7 +11,7 @@ namespace LoginActivity.Model
     {
 
         public static string tokenUser;
-        public static string MessageInformation;
+        public static string InformationMessage;
         public static bool Authenticate(string Username, string Password)
         {
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
@@ -20,12 +20,12 @@ namespace LoginActivity.Model
             {
                 var user = client.Authenticate(Username, Password, tokenApi);
                 tokenUser = user.TokenUser;
-                if (!user.IsAuthentified) MessageInformation = "Invalid credentials";
+                if (!user.IsAuthentified) InformationMessage = "Invalid credentials";
                 return user.IsAuthentified;
             }
             catch
             {
-                MessageInformation = "Web service unavailable";
+                InformationMessage = "Web service unavailable";
                 return false;
             }
         }

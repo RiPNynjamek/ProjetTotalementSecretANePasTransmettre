@@ -64,7 +64,7 @@ namespace LoginActivity
             {
                 Dispatcher.Invoke(() =>
                 {
-                    ErrorLogin.Text = Model.Authentication.MessageInformation;
+                    ErrorLogin.Text = Model.Authentication.InformationMessage;
                     ErrorLogin.Visibility = Visibility.Visible;
                 });
             }

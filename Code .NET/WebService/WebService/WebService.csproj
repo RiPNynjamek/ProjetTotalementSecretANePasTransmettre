@@ -95,6 +95,7 @@
     <Compile Include="Business\DatabaseTokenValidator.cs" />
     <Compile Include="Business\DecryptAES.cs" />
     <Compile Include="Business\DecryptXOR.cs" />
+    <Compile Include="Business\Logger.cs" />
     <Compile Include="Connected Services\WsGenJava\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

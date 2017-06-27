@@ -30,10 +30,19 @@ namespace LoginActivity.Model
             }
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
             string tokenUser = Authentication.tokenUser;
+
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
-            var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
-            InformationMessage = retour.InfoMessage;
-            return retour.IsDecrypted;
+            try
+            {
+                var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
+                InformationMessage = retour.InfoMessage;
+                return retour.IsDecrypted;
+            }
+            catch
+            {
+                InformationMessage = "Web service unavailable";
+                return false;
+            }
         }
     }
 }
