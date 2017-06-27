@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/src/java/Model/DicoController.java</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/index.xhtml</file>
             <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/dico/List.xhtml</file>
-            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/history/List.xhtml</file>
-            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/src/java/Model/HistoryController.java</file>
-            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/src/java/Model/Dico.java</file>
-            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/template.xhtml</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/src/java/Model/Users.java</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/src/java/Controller/UsersController.java</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/users/List.xhtml</file>
+            <file>file:/C:/Users/Adrien/Desktop/Exia/A4/UE%203/Projet%20JEE%20WCF/Github%20projet%20JEE/Code%20Web%20App/WebApp/web/Login.xhtml</file>
         </group>
     </open-files>
 </project-private>

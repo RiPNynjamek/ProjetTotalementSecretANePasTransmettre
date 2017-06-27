@@ -34,3 +34,21 @@ D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\Lo
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.exe
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.pdb
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\bin\Debug\LoginActivity.exe.config
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\bin\Debug\LoginActivity.exe
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\bin\Debug\LoginActivity.pdb
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\View\MainPageView.baml
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\View\LoginPageView.g.cs
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\MainWindow.g.cs
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\View\MainPageView.g.cs
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\App.g.cs
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity_MarkupCompile.cache
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity_MarkupCompile.lref
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\View\LoginPageView.baml
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\MainWindow.baml
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.g.resources
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.Properties.Resources.resources
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csproj.GenerateResource.Cache
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.exe
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.pdb

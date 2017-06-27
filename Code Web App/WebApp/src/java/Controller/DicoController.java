@@ -1,9 +1,9 @@
 package Controller;
 
 import Model.Dico;
-import View.DicoFacade;
-import Helpers.JsfUtil;
-import Helpers.PaginationHelper;
+import Controller.util.JsfUtil;
+import Controller.util.PaginationHelper;
+import Facades.DicoFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class DicoController implements Serializable {
     private Dico current;
     private DataModel items = null;
     @EJB
-    private View.DicoFacade ejbFacade;
+    private Facades.DicoFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
