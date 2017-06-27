@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://wsgen.gen.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="wsGen" targetNamespace="http://wsgen.gen.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:10080/wsGen/wsGen?xsd=1" namespace="http://wsgen.gen.com/" />
+    </xsd:schema>
+  </types>
+  <message name="receive">
+    <part name="parameters" element="tns:receive" />
+  </message>
+  <message name="send">
+    <part name="parameters" element="tns:send" />
+  </message>
+  <portType name="wsGen">
+    <operation name="receive">
+      <input wsam:Action="http://wsgen.gen.com/wsGen/receive" message="tns:receive" />
+    </operation>
+    <operation name="send">
+      <input wsam:Action="http://wsgen.gen.com/wsGen/send" message="tns:send" />
+    </operation>
+  </portType>
+  <binding name="wsGenPortBinding" type="tns:wsGen">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="receive">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="send">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+  </binding>
+  <service name="wsGen">
+    <port name="wsGenPort" binding="tns:wsGenPortBinding">
+      <soap:address location="http://localhost:10080/wsGen/wsGen" />
+    </port>
+  </service>
+</definitions>

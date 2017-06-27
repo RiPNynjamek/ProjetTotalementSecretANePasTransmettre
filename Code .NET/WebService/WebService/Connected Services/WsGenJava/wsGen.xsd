@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://wsgen.gen.com/" targetNamespace="http://wsgen.gen.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="receive" type="tns:receive" />
+  <xs:element name="send" type="tns:send" />
+  <xs:complexType name="receive">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="send">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>
