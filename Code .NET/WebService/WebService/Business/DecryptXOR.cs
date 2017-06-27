@@ -23,6 +23,8 @@ namespace WebService.Business
         {
             var com = new Communication<T>();
             com.Receive();
+            WsGenJava.wsGenClient c = new WsGenJava.wsGenClient();
+            c.receive();
             foreach (var item in objet)
             {
                 EncryptDecryptWithoutKey(item.ToString());
