@@ -13,6 +13,7 @@ namespace WebService.Business
 {
     public class Communication<T> : ICommunicateJob<T>
     {
+        private Thread workerThread;
         public bool DoWork(List<T> objet)
         {
             return true;
@@ -22,16 +23,17 @@ namespace WebService.Business
         {
             try
             {
+
                 var factory = new ConnectionFactory() { HostName = "localhost" };
                 using (var connection = factory.CreateConnection())
                 {
                     using (var channel = connection.CreateModel())
                     {
-                        channel.QueueDeclare(queue: "decrypt",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+                        channel.QueueDeclare(queue: "result",
+                                        durable: false,
+                                        exclusive: false,
+                                        autoDelete: false,
+                                        arguments: null);
 
                         var consumer = new EventingBasicConsumer(channel);
                         consumer.Received += (model, ea) =>
@@ -40,9 +42,9 @@ namespace WebService.Business
                             var message = Encoding.UTF8.GetString(body);
                             Debug.WriteLine("Received : " + message);
                         };
-                        channel.BasicConsume(queue: "decrypt",
-                                             noAck: true,
-                                             consumer: consumer);
+                        channel.BasicConsume(queue: "result",
+                                                noAck: true,
+                                                consumer: consumer);
                         Console.ReadLine();
                     }
                 }
@@ -52,12 +54,13 @@ namespace WebService.Business
                 Debug.WriteLine(e.Message);
                 throw;
             }
+            
         }
 
         public void Receive()
         {
             Communication<T> workerObject = new Communication<T>();
-            Thread workerThread = new Thread(workerObject.ReceiveMessage);
+            workerThread = new Thread(workerObject.ReceiveMessage);
             workerThread.Start();
         }
 
