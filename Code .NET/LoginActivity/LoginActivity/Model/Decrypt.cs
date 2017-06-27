@@ -29,7 +29,7 @@ namespace LoginActivity.Model
                 filesBytes.Add(Bytes);
             }
             string tokenApi = ConfigurationManager.AppSettings["appVersion"];
-            string tokenUser = Authentication.tokenUser;
+            string tokenUser = Authentication.TokenUser;
 
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
             try

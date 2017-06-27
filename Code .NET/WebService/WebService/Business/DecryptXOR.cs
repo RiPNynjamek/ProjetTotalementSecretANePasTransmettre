@@ -14,6 +14,8 @@ namespace WebService.Business
     public class DecryptXOR<T> : IDecryptJob<T>
     {
         public string InformationMessage;
+        public static bool IsDecrypted = false;
+        public static string FinalMessage;
         public bool DoWork(List<T> objet)
         {
             return Decrypt(objet);
@@ -40,6 +42,8 @@ namespace WebService.Business
             {
                 EncryptDecryptWithoutKey(item.ToString());
             }
+            while(!IsDecrypted) {}
+
             // TODO: get the result from JMS before returning true
             InformationMessage = "File decrypted successfully!";
             return true;
@@ -51,18 +55,21 @@ namespace WebService.Business
             char[] key = { 'a', 'a', 'a', 'a', 'a', 'a' };
             while (true)
             {
+                if (IsDecrypted) break;
                 for (int i = 0; i < input.Length; i++)
                 {
+                    if (IsDecrypted) break;
                     char charToInsert = input[i];
                     for (int j = 0; j < key.Length; j++)
                     {
+                        if (IsDecrypted) break;
                         charToInsert = ((char)(charToInsert ^ key[j]));
                     }
                     result.Append(charToInsert);
                 }
                 SendMessage(result.ToString(), new string(key));
                 key = IncrementKey(key);
-                if (key == null) break;
+                if (key == null) return false;
             }
             return true;
         }
@@ -89,7 +96,7 @@ namespace WebService.Business
                 result.Append(charToInsert);
             }
             Debug.WriteLine("Final string : " + result);
-            new Communication<T>().Send(result.ToString());
+            SendMessage(result.ToString(), new string(charKey));
             return true;
         }
 

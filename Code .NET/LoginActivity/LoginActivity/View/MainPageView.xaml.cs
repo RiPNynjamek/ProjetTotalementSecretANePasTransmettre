@@ -23,7 +23,7 @@ namespace LoginActivity.View
 
         private void BrowseClick(object sender, RoutedEventArgs e)
         {
-            if(filenames == null) filenames = new List<string>();
+            if (filenames == null) filenames = new List<string>();
             if (filenames.Count > 0) filenames.Clear();
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog()
             {
@@ -33,13 +33,13 @@ namespace LoginActivity.View
             };
 
             Nullable<bool> result = dlg.ShowDialog();
-            
+
             if (result.HasValue && result.Value)
             {
                 Filename.Text = "";
                 foreach (var item in dlg.FileNames)
                 {
-                    Filename.Text += item+"\n";
+                    Filename.Text += item + "\n";
                     filenames.Add(item);
                 }
             }
@@ -76,6 +76,16 @@ namespace LoginActivity.View
         private void Window_Closing(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void ListUsers(object sender, RoutedEventArgs e)
+        {
+            List<string> users = Model.Information.GetCurrentUsers() ?? new List<string>();
+            Users.Text = "";
+            foreach (var item in users)
+            {
+                Users.Text += item + "\n";
+            }
         }
     }
 }

@@ -41,6 +41,8 @@ namespace WebService.Business
                             var body = ea.Body;
                             var message = Encoding.UTF8.GetString(body);
                             Debug.WriteLine("Received : " + message);
+                            DecryptXOR<T>.IsDecrypted = true;
+                            DecryptXOR<T>.FinalMessage = message;
                         };
                         channel.BasicConsume(queue: "result",
                                                 noAck: true,
@@ -85,7 +87,6 @@ namespace WebService.Business
                                              routingKey: "decrypt",
                                              basicProperties: null,
                                              body: body);
-                        Debug.WriteLine("Sent : " + message);
                     }
                 }
             }

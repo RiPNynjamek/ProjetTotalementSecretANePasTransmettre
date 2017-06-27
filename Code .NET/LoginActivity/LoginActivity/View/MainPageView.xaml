@@ -11,5 +11,7 @@
         <Button Content="Browse..." HorizontalAlignment="Left" Margin="207,10,0,0" VerticalAlignment="Top" Width="75" Click="BrowseClick"/>
         <Button Content="Send file" Name="SendFile" HorizontalAlignment="Left" Margin="116,111,0,0" VerticalAlignment="Top" Width="75" Click="SendClick" FontSize="16"/>
         <TextBlock Name="Information" HorizontalAlignment="Left" Margin="116,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
+        <Button Content="List users" HorizontalAlignment="Left" Margin="207,188,0,0" VerticalAlignment="Top" Width="75" Click="ListUsers"/>
+        <TextBlock Name="Users" HorizontalAlignment="Left" Margin="23,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Black"/>
     </Grid>
 </Window>

@@ -86,6 +86,7 @@
     </None>
     <Content Include="Service\Authentication.svc" />
     <Content Include="Service\Decryption.svc" />
+    <Content Include="Service\Information.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +123,10 @@
     </Compile>
     <Compile Include="Service\IAuthentication.cs" />
     <Compile Include="Service\IDecryption.cs" />
+    <Compile Include="Service\IInformation.cs" />
+    <Compile Include="Service\Information.svc.cs">
+      <DependentUpon>Information.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
