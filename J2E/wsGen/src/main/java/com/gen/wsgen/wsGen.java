@@ -32,7 +32,6 @@ public class wsGen {
     @Oneway
     public void receive() {
         ejbRef.receive();
-        send();
     }
    
 }
