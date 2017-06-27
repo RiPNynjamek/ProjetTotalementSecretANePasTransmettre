@@ -5,6 +5,8 @@
  */
 package com.gen.pocconnection;
 
+import org.json.JSONObject;
+
 /**
  *
  * @author Cyril
@@ -14,10 +16,11 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) {
         // TODO code application logic here
-        connection co = new connection();
-        co.receive();
+        patternMail mail = new patternMail();
+        mail.searchPattern("toto");
     }
     
 }

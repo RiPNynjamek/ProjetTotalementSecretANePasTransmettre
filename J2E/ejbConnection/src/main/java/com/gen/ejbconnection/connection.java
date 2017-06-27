@@ -68,7 +68,7 @@ public class connection {
             channel.basicConsume(QUEUE_NAME, true, consumer);
             System.in.read();
         }catch(Exception e){
-            
+            System.out.println("exception :"+ e);
         }
     }
 }
