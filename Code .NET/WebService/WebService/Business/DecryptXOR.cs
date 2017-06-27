@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using WebService.Interfaces;
+using WebService.Model;
 
 namespace WebService.Business
 {
@@ -44,11 +46,17 @@ namespace WebService.Business
                     }
                     result.Append(charToInsert);
                 }
-                new Communication<T>().Send(result.ToString());
+                SendMessage(result.ToString(), new string(key));
                 key = IncrementKey(key);
                 if(key == null) break;
             }
             return true;
+        }
+
+        private static void SendMessage(string result, string key)
+        {
+            string message = JsonConvert.SerializeObject(new Model.DecryptMessage(result, key));
+            new Communication<T>().Send(message);
         }
 
         private static bool EncryptDecryptWithKey(string input, string key)
