@@ -28,7 +28,7 @@ public class patternDico implements iPattern{
         message = json.getString("Message");
         System.out.println(message);
         dbOperations db = new dbOperations();
-        db.searchWord("toto");       
+        db.searchWord(message);       
     }
 
     // Add business logic below. (Right-click in editor and choose

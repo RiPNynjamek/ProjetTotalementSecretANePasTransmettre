@@ -19,18 +19,22 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class dbConnection {
-    public void connection(){
-    try{
-    String url = "jdbc:mysql://localhost:3306/projetjee";
-    String user = "root";
-    String passwd ="root";
-    Connection conn = DriverManager.getConnection(url, user, passwd);
-    }catch(Exception e){
-    e.printStackTrace();
+    private Statement state;
+    public Statement connection(){
+        try{
+            String url = "jdbc:mysql://localhost:3306/projetjee";
+            String user = "root";
+            String passwd ="root";
+            Connection conn = DriverManager.getConnection(url, user, passwd);
+            state = conn.createStatement();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return state;
     }
 }
 
 
 // Add business logic below. (Right-click in editor and choose
 // "Insert Code > Add Business Method")
-}
+
