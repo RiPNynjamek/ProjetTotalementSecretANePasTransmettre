@@ -11,6 +11,8 @@
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
+                <h:inputText value="#{dicoController.searchInput}" />
+                <h:commandButton value="Search Word" action="#{dicoController.getSpecificItems}" />
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
@@ -19,7 +21,7 @@
                     <h:outputText value="#{dicoController.pagination.pageFirstItem + 1}..#{dicoController.pagination.pageLastItem + 1}/#{dicoController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{dicoController.previous}" value="#{bundle.Previous} #{dicoController.pagination.pageSize}" rendered="#{dicoController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{dicoController.next}" value="#{bundle.Next} #{dicoController.pagination.pageSize}" rendered="#{dicoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{dicoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{dicoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px" >
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDicoTitle_id}"/>
@@ -30,7 +32,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDicoTitle_mot}"/>
                             </f:facet>
-                            <h:outputText value="#{item.mot}"/>
+                            <h:outputText value="#{item.mot}" />
                         </h:column>
                         <h:column>
                             <f:facet name="header">

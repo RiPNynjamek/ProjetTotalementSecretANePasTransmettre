@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Dico;
 import Controller.util.JsfUtil;
 import Controller.util.PaginationHelper;
 import Facades.DicoFacade;
@@ -17,11 +16,16 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import Model.Dico;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 
 @Named("dicoController")
 @SessionScoped
 public class DicoController implements Serializable {
-
+    private String searchInput;
     private Dico current;
     private DataModel items = null;
     @EJB
@@ -31,7 +35,15 @@ public class DicoController implements Serializable {
 
     public DicoController() {
     }
-
+    
+    public String getSearchInput(){
+        return searchInput;
+    }
+    
+    public void setSearchInput(String searchInput){
+        this.searchInput = searchInput;
+    }
+    
     public Dico getSelected() {
         if (current == null) {
             current = new Dico();
@@ -159,7 +171,21 @@ public class DicoController implements Serializable {
         }
         return items;
     }
+    
+    public void getSpecificItems(){
+        Collection<Dico> temp = new ArrayList<>();
+        items = new ListDataModel(getFacade().findAll());
+        List<Dico> dico = (List<Dico> ) items.getWrappedData();
 
+        for(int i = 0; i < dico.size(); i++){
+            if(dico.get(i).getMot().contains(searchInput))
+            {
+                temp.add(dico.get(i));
+            }
+        }
+        items.setWrappedData(temp);
+    }
+    
     private void recreateModel() {
         items = null;
     }

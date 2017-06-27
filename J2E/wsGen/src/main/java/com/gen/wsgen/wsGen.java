@@ -27,7 +27,7 @@ public class wsGen {
     public void send() {
         ejbRef.send();
     }
-
+    
     @WebMethod(operationName = "receive")
     @Oneway
     public void receive() {
