@@ -85,7 +85,6 @@ namespace WebService.Business
                                              routingKey: "decrypt",
                                              basicProperties: null,
                                              body: body);
-                        Debug.WriteLine("Sent : " + message);
                     }
                 }
             }

@@ -23,7 +23,8 @@ import org.json.JSONObject;
 @Stateless
 public class connection {
 
-    private final static String QUEUE_NAME = "decrypt";
+    private final static String QUEUE_NAME_SEND = "result";
+    private final static String QUEUE_NAME_RCV = "decrypt";
     public void send()
     {
         try{
@@ -32,9 +33,9 @@ public class connection {
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
-        String message = "{Message : l'adresse mail est toto@gmail.com, Key : fuhrer}";
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+        channel.queueDeclare(QUEUE_NAME_SEND,false,false,false,null);
+        String message = "{Mail : toto@gmail.com, Key : totoet}";
+        channel.basicPublish("", QUEUE_NAME_SEND, null, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
         }catch(Exception e){
            System.out.println("exception :"+ e);
@@ -57,7 +58,7 @@ public class connection {
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
 
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueDeclare(QUEUE_NAME_RCV, false, false, false, null);
             System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
             Consumer consumer = new DefaultConsumer(channel) {
                 @Override
@@ -66,7 +67,7 @@ public class connection {
                     System.out.println(" [x] Received '" + message + "'");
                 }
             };
-            channel.basicConsume(QUEUE_NAME, true, consumer);
+            channel.basicConsume(QUEUE_NAME_RCV, true, consumer);
             System.in.read();
         }catch(Exception e){
             System.out.println("exception :"+ e);

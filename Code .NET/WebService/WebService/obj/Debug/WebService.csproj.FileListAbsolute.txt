@@ -39,3 +39,5 @@ C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NE
 C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\obj\Debug\WebService.pdb
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\Newtonsoft.Json.dll
 D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\Newtonsoft.Json.xml
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\Newtonsoft.Json.dll
+C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\WebService\WebService\bin\Newtonsoft.Json.xml
