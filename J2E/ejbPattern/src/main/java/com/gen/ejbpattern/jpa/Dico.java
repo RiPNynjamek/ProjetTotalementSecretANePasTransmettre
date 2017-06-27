@@ -94,7 +94,7 @@ public class Dico implements Serializable {
 
     @Override
     public String toString() {
-        return "com.gen.ejbpattern.Dico[ id=" + id + " ]";
+        return "com.gen.ejbpattern.jpa.Dico[ id=" + id + " ]";
     }
     
 }
