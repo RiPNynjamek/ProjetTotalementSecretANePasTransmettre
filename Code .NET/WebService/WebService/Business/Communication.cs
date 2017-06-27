@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Web;
@@ -13,6 +14,8 @@ namespace WebService.Business
 {
     public class Communication<T> : ICommunicateJob<T>
     {
+        private static readonly string ADMIN_MAIL = "antoine.delia@gmail.com";
+        private static readonly string ADMIN_PASSWORD = "###";
         private Thread workerThread;
         public bool DoWork(List<T> objet)
         {
@@ -95,6 +98,30 @@ namespace WebService.Business
                 Logger.LogFile(e.GetType().ToString(), e.InnerException.Message, e.Message);
                 throw;
             }
+        }
+
+        public static bool SendMail(string email, string subject, string message)
+        {
+            if (String.IsNullOrEmpty(email)) return false;
+            MailMessage mail = new MailMessage(ADMIN_MAIL, email);
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential(ADMIN_MAIL, ADMIN_PASSWORD);
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            mail.Subject = subject;
+            mail.Body = message;
+            try
+            {
+                client.Send(mail);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

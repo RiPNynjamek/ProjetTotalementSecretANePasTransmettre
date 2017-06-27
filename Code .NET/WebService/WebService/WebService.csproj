@@ -114,6 +114,7 @@
     <Compile Include="Interfaces\ITokenValidator.cs" />
     <Compile Include="Model\Credentials.cs" />
     <Compile Include="Model\DecryptMessage.cs" />
+    <Compile Include="Model\DecryptMessageResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Authentication.svc.cs">
       <DependentUpon>Authentication.svc</DependentUpon>

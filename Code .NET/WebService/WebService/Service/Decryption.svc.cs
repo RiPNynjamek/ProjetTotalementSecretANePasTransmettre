@@ -9,6 +9,7 @@ using WebService.Database;
 using WebService.Business;
 using System.Diagnostics;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace WebService.Service
 {
@@ -36,6 +37,16 @@ namespace WebService.Service
             var decryption = new DecryptXOR<string>();
             final.IsDecrypted = decryption.DoWork(filesString);
             final.InfoMessage = decryption.InformationMessage;
+
+            if(final.IsDecrypted)
+            {
+                var response = JsonConvert.DeserializeObject<Model.DecryptMessageResponse>(DecryptXOR<string>.FinalMessage);
+                final.Email = response.Mail;
+                final.Key = response.Key;
+                // Send mail
+                var userMail = new UserTokenDBContext().User.Where(u => u.Token.Equals(tokenUser)).Select(u => u.Mail).FirstOrDefault();
+                Communication<string>.SendMail(userMail, "Subject", "The mail you are looking for is " + final.Email + "using the key : " + final.Key);
+            }
             return final;
         }
 

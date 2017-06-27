@@ -49,7 +49,7 @@ namespace WebService.Business
             return true;
         }
 
-        private static bool EncryptDecryptWithoutKey(string input)
+        public static bool EncryptDecryptWithoutKey(string input)
         {
             var result = new StringBuilder();
             char[] key = { 'a', 'a', 'a', 'a', 'a', 'a' };
@@ -80,7 +80,7 @@ namespace WebService.Business
             new Communication<T>().Send(message);
         }
 
-        private static bool EncryptDecryptWithKey(string input, string key)
+        public static string EncryptDecryptWithKey(string input, string key)
         {
             var result = new StringBuilder();
             char[] charKey = key.ToCharArray();
@@ -97,7 +97,7 @@ namespace WebService.Business
             }
             Debug.WriteLine("Final string : " + result);
             SendMessage(result.ToString(), new string(charKey));
-            return true;
+            return result.ToString();
         }
 
         private static char[] IncrementKey(char[] key)
