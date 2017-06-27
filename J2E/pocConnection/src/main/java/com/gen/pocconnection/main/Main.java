@@ -7,7 +7,7 @@ package com.gen.pocconnection.main;
 
 import com.gen.pocconnection.pattern.*;
 import com.gen.pocconnection.connection;
-import com.gen.ejbpattern.patternDico;
+
 /**
  *
  * @author Cyril
@@ -20,8 +20,8 @@ public class Main {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        patternDico dico = new patternDico();
-        dico.searchPattern("{Message : maison toto@gmail.com}");
+        patternMail mail = new patternMail();
+        mail.searchPattern("{Message : toto}");
     }
     
 }
