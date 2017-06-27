@@ -14,6 +14,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import javax.ejb.Stateless;
+import org.json.JSONObject;
 
 /**
  *
@@ -32,7 +33,7 @@ public class connection {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
-        String message = "Hello World!";
+        String message = "{Message : l'adresse mail est toto@gmail.com, Key : fuhrer}";
         channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
         }catch(Exception e){
