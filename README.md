@@ -1,7 +1,7 @@
 # Projet Generator #TotalementSecretANePasTransmettre
 
 ## Introduction
-Suite a une demande d'une agence de cyber-sécurité nous devons réaliser la mission **GENERATOR** nous devons pour cela réaliser : 
+Suite a une demande d'une agence de cyber-sécurité nous devons réaliser la mission **GENERATOR**. Nous devons pour cela réaliser : 
 
 * Le client lourd 'GEN'
 * La plateforme distribuée 'GEN' basée sur les technologies .NET WCF et java EE 
@@ -9,31 +9,36 @@ Suite a une demande d'une agence de cyber-sécurité nous devons réaliser la mi
 * Le nom de l'informateur (cet élément ne sera pas présent sur github pour des raisons de sécurité) 
 * Le fichier secret (cet élément ne sera pas présent sur github pour des raisons de sécurité) 
 
-De plus vous trouverai  ci-dessous l'ensemble de notre gestion de projet ainsi que nos modélisation UML et nos analyses
+De plus vous trouverez  ci-dessous l'ensemble de notre gestion de projet ainsi que nos modélisations UML et nos analyses
 
 ## Gestion de projet
+Pour gérer au mieux notre projet et notre organisation, nous avons mis en place les outils suivants : un Trello afin de gérer au mieux les deadlines et un Burndown Chart afin de visualiser en temps réel notre avancement de manière optimale.
 
-### Trello 
-
-### burndown chart 
+### Burndown chart 
+[Burndown Chart](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/Burndown%20Chart.xlsx)
 
 ## Modélisation UML 
 
-### Diagramme use case 
+### Diagramme de Use Cases
+![Diagramme de cas d'utilisation](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/UseCaseDiagram.png)
 
+### Diagrammes d'activités 
+[Diagramme d'activités Administrateur](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/Admin%20Activity.png)
 
-### diagrammes d'activités 
+Diagramme d'activités Client-WS-JMS In Progress
 
-### diagramme de composant
+### Diagramme de composants
+![Diagramme de composants](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/ComponentDiagram.png)
 
-### diagramme de classe
-
-### diagramme de sequence 
+### Diagramme de classes
+![Diagramme de classes](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/ClassDiagram.png)
 
 
 ## Analyse technique 
 
+
 ## Analyse des écarts 
+
 
 ## Bilan 
 
