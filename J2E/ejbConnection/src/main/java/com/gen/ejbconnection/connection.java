@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package com.gen.ejbconnection;
 
 import com.rabbitmq.client.AMQP;
@@ -15,30 +15,31 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import javax.ejb.Stateless;
 import org.json.JSONObject;
-
+import com.gen.ejbpattern.router;
 /**
  *
  * @author Cyril
  */
 @Stateless
 public class connection {
-
+    
     private final static String QUEUE_NAME_SEND = "result";
     private final static String QUEUE_NAME_RCV = "decrypt";
     public void send()
     {
         try{
-        System.out.println("debut de la transaction");
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-        channel.queueDeclare(QUEUE_NAME_SEND,false,false,false,null);
-        String message = "{Mail : toto@gmail.com, Key : totoet}";
-        channel.basicPublish("", QUEUE_NAME_SEND, null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+            System.out.println("debut de la transaction");
+            ConnectionFactory factory = new ConnectionFactory();
+            factory.setHost("localhost");
+            Connection connection = factory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE_NAME_SEND,false,false,false,null);
+            router router = new router();
+            String message = router.returnResult();
+            channel.basicPublish("", QUEUE_NAME_SEND, null, message.getBytes());
+            
         }catch(Exception e){
-           System.out.println("exception :"+ e);
+            System.out.println("exception :"+ e);
         }
     }
     public void receive(){
@@ -57,7 +58,7 @@ public class connection {
             factory.setHost("localhost");
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
-
+            
             channel.queueDeclare(QUEUE_NAME_RCV, false, false, false, null);
             System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
             Consumer consumer = new DefaultConsumer(channel) {
@@ -65,6 +66,8 @@ public class connection {
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     String message = new String(body, "UTF-8");
                     System.out.println(" [x] Received '" + message + "'");
+                    router router = new router();
+                    router.compare(message);
                 }
             };
             channel.basicConsume(QUEUE_NAME_RCV, true, consumer);

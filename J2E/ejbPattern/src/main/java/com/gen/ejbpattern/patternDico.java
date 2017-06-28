@@ -20,7 +20,7 @@ import com.gen.ejbpattern.model.dbOperations;
 @Stateless
 @LocalBean
 public class patternDico implements iPattern{
-     
+    private float tauxConfiance;
     @Override
     public void searchPattern(String message) {
         JSONObject json = new JSONObject(message);
@@ -28,9 +28,24 @@ public class patternDico implements iPattern{
         message = json.getString("Message");
         System.out.println(message);
         dbOperations db = new dbOperations();
-        db.searchWord(message);       
+        setTauxConfiance(db.searchWord(message));       
     }
+    
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    /**
+     * @return the tauxConfiance
+     */
+    public float getTauxConfiance() {
+        return tauxConfiance;
+    }
+
+    /**
+     * @param tauxConfiance the tauxConfiance to set
+     */
+    public void setTauxConfiance(float tauxConfiance) {
+        this.tauxConfiance = tauxConfiance;
+    }
 }

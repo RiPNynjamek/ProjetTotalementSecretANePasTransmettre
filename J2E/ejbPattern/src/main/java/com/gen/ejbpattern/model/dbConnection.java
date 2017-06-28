@@ -19,18 +19,17 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class dbConnection {
-    private Statement state;
-    public Statement connection(){
+    private Connection connection;
+    public Connection connection(){
         try{
             String url = "jdbc:mysql://localhost:3306/projetjee";
             String user = "root";
             String passwd ="root";
-            Connection conn = DriverManager.getConnection(url, user, passwd);
-            state = conn.createStatement();
+            connection = DriverManager.getConnection(url, user, passwd);
         }catch(Exception e){
             e.printStackTrace();
         }
-        return state;
+        return connection;
     }
 }
 
