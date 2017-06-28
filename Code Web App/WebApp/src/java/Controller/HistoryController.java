@@ -1,9 +1,9 @@
 package Controller;
 
 import Model.History;
+import Controller.util.JsfUtil;
+import Controller.util.PaginationHelper;
 import Facades.HistoryFacade;
-import Helpers.JsfUtil;
-import Helpers.PaginationHelper;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
