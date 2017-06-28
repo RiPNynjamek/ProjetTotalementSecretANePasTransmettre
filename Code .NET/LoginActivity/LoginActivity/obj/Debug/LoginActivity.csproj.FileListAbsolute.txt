@@ -52,3 +52,5 @@ C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NE
 C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.csproj.GenerateResource.Cache
 C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.exe
 C:\Users\Cyril\Documents\GitHub\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\obj\Debug\LoginActivity.pdb
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\bin\Debug\itextsharp.dll
+D:\Exia\A4\28°) Projet JEE\ProjetTotalementSecretANePasTransmettre\Code .NET\LoginActivity\LoginActivity\bin\Debug\itextsharp.xml

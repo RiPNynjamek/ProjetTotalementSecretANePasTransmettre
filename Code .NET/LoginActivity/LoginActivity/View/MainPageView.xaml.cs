@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using LoginActivity.Model;
+using LoginActivity.Businness;
 
 namespace LoginActivity.View
 {
@@ -13,6 +19,7 @@ namespace LoginActivity.View
     {
         private List<string> filenames;
         private readonly BackgroundWorker worker = new BackgroundWorker();
+        private readonly string REPORT_FILE_PATH = "D:\\fichier.pdf";
 
         public MainPageView()
         {
@@ -63,13 +70,16 @@ namespace LoginActivity.View
             {
                 Information.Text = string.Empty;
             });
-            if (Model.Decrypt.Decrypter(filenames))
+            if (Decrypt.Decrypter(filenames))
             {
                 // Success!
+                string message = "Message was successfully decrypted! The mail is : " + Decrypt.retour.Email + 
+                    " and it was decrypted with the following key : " + Decrypt.retour.Key;
+                FileCreation.CreatePDF(REPORT_FILE_PATH, message);
             }
             Dispatcher.Invoke(() =>
             {
-                Information.Text = Model.Decrypt.InformationMessage;
+                Information.Text = Decrypt.InformationMessage;
             });
         }
 

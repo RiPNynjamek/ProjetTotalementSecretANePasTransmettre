@@ -21,6 +21,7 @@ namespace WebService.Service
 
         public CompositeTypeDecrypt Decrypt(string tokenUser, string tokenApi, List<byte[]> files)
         {
+            #region Verification
             // Check Token User
             using (var dbContext = new UserTokenDBContext())
                 if (!new DatabaseTokenValidator(dbContext).IsValid(tokenUser))
@@ -30,23 +31,27 @@ namespace WebService.Service
             if (files.Count == 0)
                 return new CompositeTypeDecrypt { IsDecrypted = false, InfoMessage = "No file selected" };
 
+            #endregion
+
             var final = new CompositeTypeDecrypt();
             List<string> filesString = ConvertFromByteArrayToString(files);
 
-            // Decrypt string files
+            // Files decryption
             var decryption = new DecryptXOR<string>();
             final.IsDecrypted = decryption.DoWork(filesString);
-            final.InfoMessage = decryption.InformationMessage;
 
             if(final.IsDecrypted)
             {
                 var response = JsonConvert.DeserializeObject<Model.DecryptMessageResponse>(DecryptXOR<string>.FinalMessage);
                 final.Email = response.Mail;
                 final.Key = response.Key;
+
                 // Send mail
-                var userMail = new UserTokenDBContext().User.Where(u => u.Token.Equals(tokenUser)).Select(u => u.Mail).FirstOrDefault();
+                var userMail = new UserTokenDBContext().Token.Where(t => t.Token1.Equals(tokenUser)).Select(u => u.User.Mail).FirstOrDefault();
                 Communication<string>.SendMail(userMail, "Subject", "The mail you are looking for is " + final.Email + "using the key : " + final.Key);
             }
+
+            final.InfoMessage = decryption.InformationMessage;
             return final;
         }
 

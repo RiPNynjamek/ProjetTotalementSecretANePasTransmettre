@@ -12,6 +12,7 @@ namespace LoginActivity.Model
     class Decrypt
     {
         public static string InformationMessage;
+        public static DecryptionService.CompositeTypeDecrypt retour;
 
         public static bool Decrypter(List<string> files)
         {
@@ -34,7 +35,7 @@ namespace LoginActivity.Model
             DecryptionService.DecryptionClient client = new DecryptionService.DecryptionClient();
             try
             {
-                var retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
+                retour = client.Decrypt(tokenUser, tokenApi, filesBytes);
                 InformationMessage = retour.InfoMessage;
                 return retour.IsDecrypted;
             }

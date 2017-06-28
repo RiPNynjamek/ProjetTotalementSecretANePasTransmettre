@@ -10,7 +10,7 @@ namespace WebServiceTest
         public void EncryptDecryptWithKeyTest()
         {
             string debut = "antoine";
-            string key = "delias";
+            string key = "aaaayz";
             string intermediaire = WebService.Business.DecryptXOR<string>.EncryptDecryptWithKey(debut, key);
             Assert.AreEqual(debut, WebService.Business.DecryptXOR<string>.EncryptDecryptWithKey(intermediaire, key));
         }

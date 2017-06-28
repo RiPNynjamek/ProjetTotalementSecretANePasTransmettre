@@ -16,16 +16,20 @@ namespace WebService.Business
         public string InformationMessage;
         public static bool IsDecrypted = false;
         public static string FinalMessage;
+        private readonly string REPORT_FILE_PATH = "D:\\fichier.pdf";
         public bool DoWork(List<T> objet)
         {
             return Decrypt(objet);
         }
 
-
         bool Decrypt(List<T> objet)
         {
+            // Start listening for a response
             var com = new Communication<T>();
             com.Receive();
+
+            #region JEE connection
+
             // We ask the JEE client to start listening to get the files
             WsGenJava.wsGenClient client = new WsGenJava.wsGenClient();
             try
@@ -38,17 +42,31 @@ namespace WebService.Business
                 InformationMessage = "Java web service not available";
                 return false;
             }
+
+            #endregion
+
             foreach (var item in objet)
             {
                 EncryptDecryptWithoutKey(item.ToString());
             }
+
+            //We wait for a response from JEE
             while(!IsDecrypted) {}
 
-            // TODO: get the result from JMS before returning true
-            InformationMessage = "File decrypted successfully!";
+            // If we couldn't find any valid decrypted file
+            if(String.IsNullOrEmpty(FinalMessage))
+            {
+                InformationMessage = "Decryption failed";
+                return false;
+            }
+
+            InformationMessage = "Success! Check the results here : " + REPORT_FILE_PATH;
             return true;
         }
 
+        #region Encryption and decryption
+
+        // Decryption using brute force (6 alpha characters)
         public static bool EncryptDecryptWithoutKey(string input)
         {
             var result = new StringBuilder();
@@ -69,15 +87,10 @@ namespace WebService.Business
                 }
                 SendMessage(result.ToString(), new string(key));
                 key = IncrementKey(key);
+                result.Clear();
                 if (key == null) return false;
             }
             return true;
-        }
-
-        private static void SendMessage(string result, string key)
-        {
-            string message = JsonConvert.SerializeObject(new DecryptMessage(result, key));
-            new Communication<T>().Send(message);
         }
 
         public static string EncryptDecryptWithKey(string input, string key)
@@ -99,6 +112,15 @@ namespace WebService.Business
             SendMessage(result.ToString(), new string(charKey));
             return result.ToString();
         }
+
+        # endregion
+
+        private static void SendMessage(string result, string key)
+        {
+            string message = JsonConvert.SerializeObject(new DecryptMessage(result, key));
+            new Communication<T>().Send(message);
+        }
+
 
         private static char[] IncrementKey(char[] key)
         {
