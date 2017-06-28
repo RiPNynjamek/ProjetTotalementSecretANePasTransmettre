@@ -12,8 +12,9 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.sql.Timestamp;
 /**
  *
  * @author Cyril
@@ -21,13 +22,15 @@ import java.util.ArrayList;
 @Stateless
 @LocalBean
 public class dbOperations {
+
+    @EJB
+    private dbConnection dbConnection;
     private float tauxConfiance;
-    public float searchWord(String message){
+    public float searchWord(String message, String key){
         System.out.println("search ");
         List<String> listMots = new ArrayList();
         List<String> motsTrouve = new ArrayList();
-        dbConnection co = new dbConnection();
-        Connection connection = co.connection();
+        Connection connection = dbConnection.connection();
         try{
             Statement state = connection.createStatement();
             String query ="SELECT mot FROM dico";
@@ -48,17 +51,42 @@ public class dbOperations {
                     }
                 }
             }
-            
-            
-            
+            insertHistory(listMots, key);
         }catch(Exception e){
             e.printStackTrace();
         }
         tauxConfiance = (float) motsTrouve.size() / (float)listMots.size() ;
         tauxConfiance = tauxConfiance * 100;
+        
         return tauxConfiance;
+        
     }
     
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    public void insertHistory(List<String> mots, String key) throws SQLException
+    {
+        Connection connection = dbConnection.connection();
+        
+        try
+        {
+            String message = "";
+            
+            for (String mot : mots) {
+                message += mots;
+                message += " ";
+            }
+            Timestamp date = new Timestamp(new java.util.Date().getTime());
+            
+            Statement state = connection.createStatement();
+            String query = "INSERT INTO HISTORY(DATA, DECRYPTIONKEY, DATE) VALUES(" + message + ", " + key + ", " + date + ");";
+            state.executeUpdate(query);
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
 }

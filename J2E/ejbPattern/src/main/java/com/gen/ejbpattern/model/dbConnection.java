@@ -24,7 +24,7 @@ public class dbConnection {
         try{
             String url = "jdbc:mysql://localhost:3306/projetjee";
             String user = "root";
-            String passwd ="root";
+            String passwd ="";
             connection = DriverManager.getConnection(url, user, passwd);
         }catch(Exception e){
             e.printStackTrace();

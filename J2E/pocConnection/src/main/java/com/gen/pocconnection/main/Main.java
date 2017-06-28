@@ -18,7 +18,9 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        patternDico dico = new patternDico();
+            
+        dico.searchPattern("{Message : random test, Key : iutyrh}");
     }
     
 }

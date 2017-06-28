@@ -26,9 +26,10 @@ public class patternDico implements iPattern{
         JSONObject json = new JSONObject(message);
         System.out.println(json);
         message = json.getString("Message");
+        String key = json.getString("Key");
         System.out.println(message);
         dbOperations db = new dbOperations();
-        setTauxConfiance(db.searchWord(message));       
+        setTauxConfiance(db.searchWord(message, key));       
     }
     
 
