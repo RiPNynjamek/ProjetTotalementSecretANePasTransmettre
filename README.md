@@ -25,7 +25,7 @@ Pour gérer au mieux notre projet et notre organisation, nous avons mis en place
 ### Diagrammes d'activités 
 [Diagramme d'activités Administrateur](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/Admin%20Activity.png)
 
-Diagramme d'activités Client-WS-JMS In Progress
+![Diagramme d'activités Client-WS-JMS](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/Diagramme%20d'activit%C3%A9%20Client%20-%20WS%20-%20JMS.png)
 
 ### Diagramme de composants
 ![Diagramme de composants](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/ComponentDiagram.png)
@@ -33,13 +33,5 @@ Diagramme d'activités Client-WS-JMS In Progress
 ### Diagramme de classes
 ![Diagramme de classes](https://github.com/RiPNynjamek/ProjetTotalementSecretANePasTransmettre/blob/master/UML/ClassDiagram.png)
 
-
-## Analyse technique 
-
-
-## Analyse des écarts 
-
-
-## Bilan 
 
 
