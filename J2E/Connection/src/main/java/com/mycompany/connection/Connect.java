@@ -23,7 +23,7 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class Connect {
+public class Connect implements iConnect {
 
     private final static String QUEUE_NAME_SEND = "result";
     private final static String QUEUE_NAME_RCV = "decrypt";
@@ -31,6 +31,7 @@ public class Connect {
     public static boolean isReady = false;    
     public static boolean isDecrypted = false;
     public static Channel channel;
+    @Override
     public void send(String message)
     {
         try{
@@ -47,6 +48,7 @@ public class Connect {
         }
     }
     
+    @Override
     public void recv() {
         try {
             System.out.println("debut de l'écoute");
