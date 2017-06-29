@@ -46,5 +46,20 @@ namespace WebServiceTest
 
             return list.ToArray();
         }
+
+        [TestMethod]
+        public void ConvertBinaryToString()
+        {
+            string myString;
+            string file = @"C:\Users\Adrien\Desktop\phase1_crypt\P1C.txt";
+
+            FileStream fs2 = new FileStream(file, FileMode.Open);
+            using (BinaryReader br = new BinaryReader(fs2))
+            {
+                byte[] bin = br.ReadBytes(Convert.ToInt32(fs2.Length));
+                myString = Convert.ToBase64String(bin);
+                File.WriteAllText(@"C:\Users\Adrien\Desktop\phase1_crypt\stringed.txt", myString);
+            }
+        } 
     }
 }

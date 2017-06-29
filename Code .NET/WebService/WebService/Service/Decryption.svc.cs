@@ -34,7 +34,8 @@ namespace WebService.Service
             #endregion
 
             var final = new CompositeTypeDecrypt();
-            List<string> filesString = ConvertFromByteArrayToString(files);
+            //List<string> filesString = ConvertFromByteArrayToString(files);
+            List<string> filesString = ConvertBinaryToString(files);
 
             // Files decryption
             var decryption = new DecryptXOR<string>();
@@ -65,6 +66,20 @@ namespace WebService.Service
                 string contents = File.ReadAllText(path, Encoding.GetEncoding("iso-8859-1"));
                 fileString.Add(contents);
                 File.Delete(path);
+            }
+            return fileString;
+        }
+
+        public List<string> ConvertBinaryToString(List<byte[]> files)
+        {
+            List<string> fileString = new List<string>();
+            string myString;
+            //string file = @"C:\Users\Adrien\Desktop\phase1_crypt\P1C.txt";
+
+            foreach(var item in files)
+            {
+                myString = Convert.ToBase64String(item);
+                fileString.Add(myString);
             }
             return fileString;
         }
