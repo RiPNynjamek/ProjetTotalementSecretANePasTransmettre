@@ -40,7 +40,6 @@ namespace WebServiceTest
             for (int i = 0; i < binary.Length; i += 8)
             {
                 String t = binary.Substring(i, 8);
-
                 list.Add(Convert.ToByte(t, 2));
             }
 

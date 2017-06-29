@@ -21,7 +21,7 @@ namespace LoginActivity.Businness
                 document.Add(new Phrase(textToWrite));
                 document.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

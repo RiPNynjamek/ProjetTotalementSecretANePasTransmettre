@@ -34,8 +34,8 @@ namespace WebService.Service
             #endregion
 
             var final = new CompositeTypeDecrypt();
-            //List<string> filesString = ConvertFromByteArrayToString(files);
-            List<string> filesString = ConvertBinaryToString(files);
+            List<string> filesString = ConvertFromByteArrayToString(files);
+            //List<string> filesString = ConvertBinaryToString(files);
 
             // Files decryption
             var decryption = new DecryptXOR<string>();
@@ -74,7 +74,6 @@ namespace WebService.Service
         {
             List<string> fileString = new List<string>();
             string myString;
-            //string file = @"C:\Users\Adrien\Desktop\phase1_crypt\P1C.txt";
 
             foreach(var item in files)
             {

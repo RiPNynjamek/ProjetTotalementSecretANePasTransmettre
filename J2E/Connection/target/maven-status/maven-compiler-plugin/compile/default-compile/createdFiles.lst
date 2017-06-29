@@ -1,2 +1,3 @@
-com\mycompany\connection\Connect$1.class
 com\mycompany\connection\Connect.class
+com\mycompany\connection\iConnect.class
+com\mycompany\connection\Connect$1.class

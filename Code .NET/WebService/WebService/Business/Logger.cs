@@ -18,18 +18,24 @@ namespace WebService.Business
             }
             else
             {
-                log = File.AppendText(path);
+                try
+                {
+                    log = File.AppendText(path);
+                    // Write to the file:
+                    log.WriteLine("Data Time : " + DateTime.Now);
+                    log.WriteLine("Exception Type : " + exceptionType);
+                    log.WriteLine("Inner exception message : " + innerExceptionMessage);
+                    log.WriteLine("Message : " + message);
+                    log.WriteLine("");
+
+                    // Close the stream:
+                    log.Close();
+                }
+                catch (Exception e)
+                {
+
+                }
             }
-
-            // Write to the file:
-            log.WriteLine("Data Time : " + DateTime.Now);
-            log.WriteLine("Exception Type : " + exceptionType);
-            log.WriteLine("Inner exception message : " + innerExceptionMessage);
-            log.WriteLine("Message : " + message);
-            log.WriteLine("");
-
-            // Close the stream:
-            log.Close();
         }
     }
 }

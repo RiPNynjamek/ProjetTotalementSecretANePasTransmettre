@@ -9,6 +9,7 @@ using iTextSharp.text.pdf;
 using System.IO;
 using LoginActivity.Model;
 using LoginActivity.Businness;
+using System.Windows.Media;
 
 namespace LoginActivity.View
 {
@@ -43,17 +44,28 @@ namespace LoginActivity.View
 
             if (result.HasValue && result.Value)
             {
-                Filename.Text = "";
+                Filename.Content = "";
                 foreach (var item in dlg.FileNames)
                 {
-                    Filename.Text += item + "\n";
+                    Filename.Content += item + "\n";
                     filenames.Add(item);
+                    SendFile.IsEnabled = true;
                 }
+            }
+            else
+            {
+                Filename.Content = "";
+                SendFile.IsEnabled = false;
             }
         }
 
         private void SendClick(object sender, RoutedEventArgs e)
         {
+            SendFile.IsEnabled = false;
+            PdfFile.Visibility = Visibility.Hidden;
+            PdfFile.IsEnabled = false;
+            Loading.Visibility = Visibility.Visible;
+            Information.Foreground = Brushes.Red;
             try
             {
                 worker.RunWorkerAsync();
@@ -76,10 +88,19 @@ namespace LoginActivity.View
                 string message = "Message was successfully decrypted! The mail is : " + Decrypt.retour.Email + 
                     " and it was decrypted with the following key : " + Decrypt.retour.Key + ". The confidence rate is : " + Decrypt.retour.Confidence;
                 FileCreation.CreatePDF(REPORT_FILE_PATH, message);
+                Dispatcher.Invoke(() =>
+                {
+                    PdfFile.Visibility = Visibility.Visible;
+                    PdfFile.IsEnabled = true;
+                    Information.Foreground = Brushes.Green;
+                });
+                
             }
             Dispatcher.Invoke(() =>
             {
                 Information.Text = Decrypt.InformationMessage;
+                SendFile.IsEnabled = true;
+                Loading.Visibility = Visibility.Hidden;
             });
         }
 
@@ -91,11 +112,16 @@ namespace LoginActivity.View
         private void ListUsers(object sender, RoutedEventArgs e)
         {
             List<string> users = Model.Information.GetCurrentUsers() ?? new List<string>();
-            Users.Text = "";
+            Users.Content = "";
             foreach (var item in users)
             {
-                Users.Text += item + "\n";
+                Users.Content += item + "\n";
             }
+        }
+
+        private void PdfFile_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(REPORT_FILE_PATH);
         }
     }
 }

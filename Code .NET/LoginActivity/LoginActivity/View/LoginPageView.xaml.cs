@@ -47,7 +47,7 @@ namespace LoginActivity
             {
                 ErrorLogin.Visibility = Visibility.Hidden;
                 login = Login.Text;
-                password = Password.Text;
+                password = Password.Password;
             });
             if (Model.Authentication.Authenticate(login, password))
             {
