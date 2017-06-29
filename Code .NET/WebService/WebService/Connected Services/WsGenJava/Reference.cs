@@ -15,17 +15,17 @@ namespace WebService.WsGenJava {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://wsgen.gen.com/", ConfigurationName="WsGenJava.wsGen")]
     public interface wsGen {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/receive")]
-        void receive();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/receive")]
-        System.Threading.Tasks.Task receiveAsync();
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/send")]
         void send();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/send")]
         System.Threading.Tasks.Task sendAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/receive")]
+        void receive();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://wsgen.gen.com/wsGen/receive")]
+        System.Threading.Tasks.Task receiveAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +55,20 @@ namespace WebService.WsGenJava {
                 base(binding, remoteAddress) {
         }
         
-        public void receive() {
-            base.Channel.receive();
-        }
-        
-        public System.Threading.Tasks.Task receiveAsync() {
-            return base.Channel.receiveAsync();
-        }
-        
         public void send() {
             base.Channel.send();
         }
         
         public System.Threading.Tasks.Task sendAsync() {
             return base.Channel.sendAsync();
+        }
+        
+        public void receive() {
+            base.Channel.receive();
+        }
+        
+        public System.Threading.Tasks.Task receiveAsync() {
+            return base.Channel.receiveAsync();
         }
     }
 }

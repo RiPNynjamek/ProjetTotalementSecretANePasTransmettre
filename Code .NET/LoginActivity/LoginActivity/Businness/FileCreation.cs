@@ -14,10 +14,17 @@ namespace LoginActivity.Businness
         public static void CreatePDF(string path, string textToWrite)
         {
             Document document = new Document();
-            PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create));
-            document.Open();
-            document.Add(new Phrase(textToWrite));
-            document.Close();
+            try
+            {
+                PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create));
+                document.Open();
+                document.Add(new Phrase(textToWrite));
+                document.Close();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }

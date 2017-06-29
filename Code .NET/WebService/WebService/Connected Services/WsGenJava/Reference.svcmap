@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f8ab4985-11d3-4699-abdb-84fc07bad22b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="05f0bf9f-9ab5-484f-b9db-ab709ebee8c0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:10080/wsGen/wsGen?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="wsGen.wsdl" MetadataType="Wsdl" ID="d9b0fb2a-f1a8-4eca-b10d-6a740a3e010e" SourceId="1" SourceUrl="http://localhost:10080/wsGen/wsGen?wsdl" />
-    <MetadataFile FileName="wsGen.xsd" MetadataType="Schema" ID="123ecc51-c9dd-42be-ae87-64b4ef5ca89e" SourceId="1" SourceUrl="http://localhost:10080/wsGen/wsGen?xsd=1" />
+    <MetadataFile FileName="wsGen.wsdl" MetadataType="Wsdl" ID="d3e5e90c-29f7-44da-8c9e-7ea8d7ed3296" SourceId="1" SourceUrl="http://localhost:10080/wsGen/wsGen?wsdl" />
+    <MetadataFile FileName="wsGen.xsd" MetadataType="Schema" ID="6af4170e-0743-41fd-a113-7e0866a20e2d" SourceId="1" SourceUrl="http://localhost:10080/wsGen/wsGen?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

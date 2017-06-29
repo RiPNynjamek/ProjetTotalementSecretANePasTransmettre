@@ -61,6 +61,7 @@ namespace WebService.Business
             }
 
             InformationMessage = "Success! Check the results here : " + REPORT_FILE_PATH;
+            new Communication<T>().Send("Stop");
             return true;
         }
 

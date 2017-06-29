@@ -117,8 +117,9 @@ namespace WebService.Business
             {
                 client.Send(mail);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.LogFile(e.GetType().ToString(), "", e.Message);
                 return false;
             }
             return true;

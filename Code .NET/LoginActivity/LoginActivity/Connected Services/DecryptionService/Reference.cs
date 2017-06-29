@@ -23,6 +23,9 @@ namespace LoginActivity.DecryptionService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float ConfidenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] DecryptedFileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -47,6 +50,19 @@ namespace LoginActivity.DecryptionService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Confidence {
+            get {
+                return this.ConfidenceField;
+            }
+            set {
+                if ((this.ConfidenceField.Equals(value) != true)) {
+                    this.ConfidenceField = value;
+                    this.RaisePropertyChanged("Confidence");
+                }
             }
         }
         

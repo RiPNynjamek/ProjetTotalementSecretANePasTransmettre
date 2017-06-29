@@ -74,7 +74,7 @@ namespace LoginActivity.View
             {
                 // Success!
                 string message = "Message was successfully decrypted! The mail is : " + Decrypt.retour.Email + 
-                    " and it was decrypted with the following key : " + Decrypt.retour.Key;
+                    " and it was decrypted with the following key : " + Decrypt.retour.Key + ". The confidence rate is : " + Decrypt.retour.Confidence;
                 FileCreation.CreatePDF(REPORT_FILE_PATH, message);
             }
             Dispatcher.Invoke(() =>

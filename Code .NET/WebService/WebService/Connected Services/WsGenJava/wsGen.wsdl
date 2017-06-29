@@ -5,29 +5,29 @@
       <xsd:import schemaLocation="http://localhost:10080/wsGen/wsGen?xsd=1" namespace="http://wsgen.gen.com/" />
     </xsd:schema>
   </types>
-  <message name="receive">
-    <part name="parameters" element="tns:receive" />
-  </message>
   <message name="send">
     <part name="parameters" element="tns:send" />
   </message>
+  <message name="receive">
+    <part name="parameters" element="tns:receive" />
+  </message>
   <portType name="wsGen">
-    <operation name="receive">
-      <input wsam:Action="http://wsgen.gen.com/wsGen/receive" message="tns:receive" />
-    </operation>
     <operation name="send">
       <input wsam:Action="http://wsgen.gen.com/wsGen/send" message="tns:send" />
+    </operation>
+    <operation name="receive">
+      <input wsam:Action="http://wsgen.gen.com/wsGen/receive" message="tns:receive" />
     </operation>
   </portType>
   <binding name="wsGenPortBinding" type="tns:wsGen">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="receive">
+    <operation name="send">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="send">
+    <operation name="receive">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

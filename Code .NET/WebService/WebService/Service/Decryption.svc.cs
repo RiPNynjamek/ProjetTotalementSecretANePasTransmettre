@@ -45,13 +45,14 @@ namespace WebService.Service
                 var response = JsonConvert.DeserializeObject<Model.DecryptMessageResponse>(DecryptXOR<string>.FinalMessage);
                 final.Email = response.Mail;
                 final.Key = response.Key;
-
+                final.Confidence = response.Confidence;
                 // Send mail
                 var userMail = new UserTokenDBContext().Token.Where(t => t.Token1.Equals(tokenUser)).Select(u => u.User.Mail).FirstOrDefault();
                 Communication<string>.SendMail(userMail, "Subject", "The mail you are looking for is " + final.Email + "using the key : " + final.Key);
             }
 
             final.InfoMessage = decryption.InformationMessage;
+            DecryptXOR<string>.IsDecrypted = false;
             return final;
         }
 

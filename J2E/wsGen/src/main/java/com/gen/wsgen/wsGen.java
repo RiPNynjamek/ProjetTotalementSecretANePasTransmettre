@@ -5,7 +5,12 @@
  */
 package com.gen.wsgen;
 
-import com.gen.ejbconnection.connection;
+import com.mycompany.connection.Connect;
+import com.mycompany.pattern.Route;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
@@ -17,21 +22,42 @@ import javax.jws.WebService;
  */
 @WebService(serviceName = "wsGen")
 public class wsGen {
-
+    
     @EJB
-    private connection ejbRef;// Add business logic below. (Right-click in editor and choose
+    private Connect ejbRef;// Add business logic below. (Right-click in editor and choose
+    @EJB
+    private Route ejbRef2;
     // "Web Service > Add Operation"
 
     @WebMethod(operationName = "send")
     @Oneway
     public void send() {
-        ejbRef.send();
+        
     }
     
     @WebMethod(operationName = "receive")
     @Oneway
     public void receive() {
-        ejbRef.receive();
+        Thread t = new Thread(){
+            public void run(){
+                ejbRef.recv();
+            }
+        };
+        t.start();
+        
+        
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(wsGen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Thread t2 = new Thread(){
+            public void run(){
+                ejbRef2.compare();
+            }
+        };
+        t2.start();
     }
    
 }

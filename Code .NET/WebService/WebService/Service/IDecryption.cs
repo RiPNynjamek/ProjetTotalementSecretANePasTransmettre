@@ -24,6 +24,7 @@ namespace WebService.Service
         byte[] reportFile = null;
         string email = "";
         string infoMessage = "";
+        float confidence = 0;
 
         [DataMember]
         public bool IsDecrypted
@@ -65,6 +66,13 @@ namespace WebService.Service
         {
             get { return infoMessage; }
             set { infoMessage = value; }
+        }
+
+        [DataMember]
+        public float Confidence
+        {
+            get { return confidence; }
+            set { confidence = value; }
         }
     }
 }
