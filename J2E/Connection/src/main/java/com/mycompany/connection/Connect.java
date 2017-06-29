@@ -4,6 +4,7 @@
  */
 package com.mycompany.connection;
 
+import com.mycompany.logger.Logger;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -13,6 +14,8 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -43,13 +46,18 @@ public class Connect implements iConnect {
             channelSend.queueDeclare(QUEUE_NAME_SEND,false,false,false,null);
             channelSend.basicPublish("", QUEUE_NAME_SEND, null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
-        }catch(Exception e){
+        }catch(IOException | TimeoutException e){
            System.out.println("exception :"+ e);
+            try {
+                Logger.writeLog(e.getMessage());
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
     @Override
-    public void recv() {
+    public void receive() {
         try {
             System.out.println("debut de l'écoute");
             ConnectionFactory factory = new ConnectionFactory();
@@ -77,8 +85,13 @@ public class Connect implements iConnect {
             channel.basicConsume(QUEUE_NAME_RCV, true, consumer);
             
             while(!isDecrypted){}
-        }catch(Exception e){
+        }catch(IOException | TimeoutException e){
             System.out.println("exception :"+ e);
+            try {
+                Logger.writeLog(e.getMessage());
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

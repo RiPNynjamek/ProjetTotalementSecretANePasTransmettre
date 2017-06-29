@@ -2,6 +2,6 @@ com\mycompany\pattern\Dico.class
 com\mycompany\pattern\Mail.class
 com\mycompany\pattern\Message.class
 com\mycompany\pattern\dbOperations.class
-com\mycompany\pattern\NewSessionBean.class
 com\mycompany\pattern\Route.class
 com\mycompany\pattern\dbConnection.class
+com\mycompany\pattern\iPattern.class

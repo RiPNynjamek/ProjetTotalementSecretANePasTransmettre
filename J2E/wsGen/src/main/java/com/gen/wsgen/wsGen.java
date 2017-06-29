@@ -40,7 +40,7 @@ public class wsGen {
     public void receive() {
         Thread t = new Thread(){
             public void run(){
-                ejbRef.recv();
+                ejbRef.receive();
             }
         };
         t.start();

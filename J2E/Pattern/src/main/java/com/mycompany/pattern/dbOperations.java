@@ -5,6 +5,8 @@
  */
 package com.mycompany.pattern;
 
+import com.mycompany.logger.Logger;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +14,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -52,7 +55,11 @@ public class dbOperations {
             }
             insertHistory(listMots, key);
         }catch(Exception e){
-            e.printStackTrace();
+            try {
+                Logger.writeLog(e.getMessage());
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(dbOperations.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         tauxConfiance = (float) motsTrouve.size() / (float)listMots.size() ;
         tauxConfiance = tauxConfiance * 100;
@@ -85,6 +92,11 @@ public class dbOperations {
         catch(SQLException e)
         {
             System.out.println(e.getMessage());
+            try {
+                Logger.writeLog(e.getMessage());
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(dbOperations.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }

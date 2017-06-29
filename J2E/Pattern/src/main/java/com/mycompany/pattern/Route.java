@@ -10,8 +10,8 @@ import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import org.json.JSONObject;
 import com.google.gson.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.mycompany.logger.Logger;
+import java.io.IOException;
 
 /**
  *
@@ -27,7 +27,7 @@ public class Route {
     public static boolean isDecrypted = false;
     private int i = 1;
     
-    public void compare(){
+    public void compare() throws IOException{
         Mail mail = new Mail();        
         Dico dico = new Dico();
 
@@ -36,7 +36,7 @@ public class Route {
             try {
                 Thread.sleep(50);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Route.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.writeLog(ex.getMessage());
             }
             if(i%1000 == 0)
             {
@@ -48,7 +48,8 @@ public class Route {
                 JSONObject json = new JSONObject(Connect.QueueList.get(0));
                 message = json.getString("Message");
                 key = json.getString("Key");
-                String finalMail = mail.searchPattern(message, key);
+                mail.searchPattern(message, key);
+                String finalMail = mail.getStringMatch();
                 if (mail.isFound){
                     System.out.println("Mail found !");
                     dico.searchPattern(message, key);
@@ -72,12 +73,12 @@ public class Route {
     }
     public String returnResult(){
         if(confidence <75){
-        JSONObject result = new JSONObject();
-        result.put("Mail" , message);
-        result.put("Key", key);
-        result.put("confidence", confidence);
-        resultString = result.toString();
-        System.out.println(resultString);
+            JSONObject result = new JSONObject();
+            result.put("Mail" , message);
+            result.put("Key", key);
+            result.put("confidence", confidence);
+            resultString = result.toString();
+            System.out.println(resultString);
         }
         return resultString;
     }

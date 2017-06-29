@@ -310,3 +310,4 @@ __pycache__/
 *.xsd.cs
 /J2E/pocConnection/target/
 /J2E/ejbPattern/target/
+/J2E/Logger/target/

@@ -11,5 +11,5 @@ package com.mycompany.connection;
  */
 public interface iConnect {
     public void send (String message);
-    public void recv();
+    public void receive();
 }

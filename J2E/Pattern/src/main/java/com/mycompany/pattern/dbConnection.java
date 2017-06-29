@@ -5,8 +5,11 @@
  */
 package com.mycompany.pattern;
 
+import com.mycompany.logger.Logger;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -25,7 +28,11 @@ public class dbConnection {
             String passwd ="";
             connection = DriverManager.getConnection(url, user, passwd);
         }catch(Exception e){
-            e.printStackTrace();
+            try {
+                Logger.writeLog(e.getMessage());
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return connection;
     }
