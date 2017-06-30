@@ -54,7 +54,11 @@ public class wsGen {
         
         Thread t2 = new Thread(){
             public void run(){
-                ejbRef2.compare();
+                try {
+                    ejbRef2.compare();
+                } catch (IOException ex) {
+                    Logger.getLogger(wsGen.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         t2.start();
